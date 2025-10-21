@@ -47,18 +47,18 @@ export default function App() {
     <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-gray-800">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
-            <div className="text-lg tracking-widest">
+            <div className="text-sm md:text-lg tracking-widest">
               <div className="font-bold">JOÃO VICTOR CARVALHO</div>
-              <div className="text-xs text-gray-400 mt-1">Machine Learning Engineer</div>
+              <div className="text-xs text-gray-400 mt-1 hidden sm:block">Machine Learning Engineer</div>
             </div>
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6 lg:gap-8">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`text-sm tracking-wider transition-colors ${
+                  className={`text-xs lg:text-sm tracking-wider transition-colors ${
                     activeSection === section.id
                       ? 'text-red-500'
                       : 'text-gray-400 hover:text-white'
@@ -68,12 +68,26 @@ export default function App() {
                 </button>
               ))}
             </div>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => {
+                  // Simple mobile navigation - scroll to first section
+                  scrollToSection('about');
+                }}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Main Content */}
-      <main className="pt-20">
+      <main className="pt-16 md:pt-20">
         <HeroSection />
         <AboutSection />
         <ExperienceSection />
