@@ -54,8 +54,8 @@ export default function HeroSection() {
             </h2>
             
             <div className="space-y-4 text-gray-200 text-lg leading-relaxed">
-              <p className="font-medium">Director, Multi-Agent AI Systems</p>
-              <p className="font-medium">AI Engineer (Volunteer), YWAM & Shema - Oral Bible Translation</p>
+              <p className="font-medium">AI Engineer, Multi-Agent AI Systems (remote)</p>
+              <p className="font-medium">AI/Software Engineer (Volunteer), YWAM & Shema - Oral Bible Translation (Kansas City, Missouri, USA)</p>
               <p className="font-medium">Visiting Student, Institute of Mathematics and Computer Science (ICMC - USP)</p>
               <p className="font-medium">Bachelor of Science, Software Engineering, Federal University of Ceará (UFC)</p>
             </div>
