@@ -12,7 +12,7 @@ export default function HeroSection() {
           backgroundImage: `url(${heroImage})`,
         }}
       >
-        <div className="absolute inset-0 bg-black/70 md:bg-black/60" />
+        <div className="absolute inset-0 bg-black/50 md:bg-black/40" />
       </div>
 
       {/* Content */}
@@ -28,16 +28,17 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-4 md:mb-6 tracking-tight leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-4 md:mb-6 tracking-tight leading-tight flex items-center gap-3 md:gap-4"
             >
               JOÃO VICTOR CARVALHO
+              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl">🇧🇷</span>
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 md:mb-10 font-medium"
+              className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 md:mb-12 font-medium"
             >
               Machine Learning Engineer, marIA Educação
             </motion.p>
@@ -47,13 +48,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-4 md:space-y-6"
+            className="space-y-6 md:space-y-8"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 tracking-tight">
-              Machine Learning Engineer
-            </h2>
-            
-            <div className="space-y-3 md:space-y-4 text-gray-200 text-sm sm:text-base md:text-lg leading-relaxed">
+            <div className="space-y-4 md:space-y-5 text-gray-200 text-sm sm:text-base md:text-lg leading-relaxed">
               <p className="font-medium">AI Engineer, Multi-Agent AI Systems (remote)</p>
               <p className="font-medium">AI/Software Engineer (Volunteer), YWAM & Shema - Oral Bible Translation (Kansas City, Missouri, USA)</p>
               <p className="font-medium">Visiting Student, Institute of Mathematics and Computer Science (ICMC - USP)</p>
