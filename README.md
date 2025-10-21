@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my work as a Machine Learning 
 
 ## 🚀 Live Demo
 
-Visit the live portfolio at: [https://joaocarvoli.github.io/portfolio](https://joaocarvoli.github.io/portfolio)
+Visit the live portfolio at: [https://joaocarvoli.github.io/portifolio](https://joaocarvoli.github.io/portifolio)
 
 ## 🛠️ Tech Stack
 
