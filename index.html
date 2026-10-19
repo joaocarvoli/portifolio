@@ -1,30 +1,506 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>João Victor Carvalho - Machine Learning Engineer</title>
-    <meta name="description" content="Portfolio of João Victor Carvalho, Machine Learning Engineer at marIA Educação, specializing in Large Language Models, NLP, and ML Systems Engineering." />
-    <meta name="keywords" content="Machine Learning, AI, NLP, LLM, João Victor Carvalho, Portfolio" />
-    <meta name="author" content="João Victor Carvalho" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://joaocarvoli.github.io/portifolio/" />
-    <meta property="og:title" content="João Victor Carvalho - Machine Learning Engineer" />
-    <meta property="og:description" content="Portfolio of João Victor Carvalho, Machine Learning Engineer at marIA Educação, specializing in Large Language Models, NLP, and ML Systems Engineering." />
-    <meta property="og:image" content="https://joaocarvoli.github.io/portifolio/NM4A0075.jpg" />
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>João Victor Carvalho</title>
+<meta name="description" content="Machine learning engineer for speech AI in unwritten languages and LLM agents that ship with evaluation gates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one left-aligned editorial column (max 1120px). The only loud element is the hero's
+   speech→units canvas; everything else is quiet type, hairlines and the CV's green/gold identity. */
+:root{
+  --bg:#f5f7f3; --bg-2:#eef1ea; --fg:#10201a; --fg-2:#4b5a52; --fg-3:#7d8a82;
+  --line:#d6dcd3; --accent:#0e6e55; --accent-ink:#ffffff; --gold:#a16f0b; --gold-soft:#f1e3bd;
+  --card:#ffffff; --unit-a:#0e6e55; --unit-b:#a16f0b; --unit-c:#2d6a9f; --unit-d:#8a3b5c;
+  --f-display:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1210; --bg-2:#101915; --fg:#e8ede9; --fg-2:#aab6ae; --fg-3:#6f7d75;
+    --line:#223029; --accent:#3fb28e; --accent-ink:#06120d; --gold:#d9a441; --gold-soft:#2a2410;
+    --card:#111b16; --unit-a:#3fb28e; --unit-b:#d9a441; --unit-c:#5aa0db; --unit-d:#d16b94;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1210; --bg-2:#101915; --fg:#e8ede9; --fg-2:#aab6ae; --fg-3:#6f7d75;
+  --line:#223029; --accent:#3fb28e; --accent-ink:#06120d; --gold:#d9a441; --gold-soft:#2a2410;
+  --card:#111b16; --unit-a:#3fb28e; --unit-b:#d9a441; --unit-c:#5aa0db; --unit-d:#d16b94;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--gold-soft);color:var(--fg)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;font-weight:600;letter-spacing:-0.02em}
+h1{font-size:clamp(2.2rem,6.2vw,4.9rem);line-height:1.02;font-weight:500}
+h2{font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.1}
+h3{font-size:1.25rem;line-height:1.25}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.muted{color:var(--fg-2)}
+.mono{font-family:var(--f-mono)}
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://joaocarvoli.github.io/portifolio/" />
-    <meta property="twitter:title" content="João Victor Carvalho - Machine Learning Engineer" />
-    <meta property="twitter:description" content="Portfolio of João Victor Carvalho, Machine Learning Engineer at marIA Educação, specializing in Large Language Models, NLP, and ML Systems Engineering." />
-    <meta property="twitter:image" content="https://joaocarvoli.github.io/portifolio/NM4A0075.jpg" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font-family:var(--f-display);font-weight:600;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
+.nav{display:flex;gap:22px;font-size:.92rem;color:var(--fg-2)}
+.nav a{position:relative;padding-block:4px}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--fg);transition:right .25s cubic-bezier(.23,1,.32,1)}
+.nav a:hover::after{right:0}
+@media (max-width:640px){.nav{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(44px,8vw,96px) clamp(28px,5vw,56px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}}
+.hero .eyebrow{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero h1 .ink{font-style:italic;font-weight:400;color:var(--gold)}
+.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.5;max-width:58ch;margin-top:22px;color:var(--fg-2)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:30px}
+.avail{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:var(--fg-2);padding:8px 2px}
+.avail i{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 45%,transparent)}60%{box-shadow:0 0 0 7px transparent}}
+
+/* slide-text button (label exits upward, twin label rises) */
+.btn{--pad:13px 20px;position:relative;display:inline-grid;overflow:hidden;border-radius:999px;padding:var(--pad);
+  font-weight:600;font-size:.95rem;line-height:1;border:1px solid var(--line);background:var(--card);color:var(--fg);
+  transition:background-color .15s cubic-bezier(.23,1,.32,1),scale .15s cubic-bezier(.23,1,.32,1),border-color .15s;cursor:pointer}
+.btn:active{scale:.97}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn .lbl{display:grid;transition:translate .2s cubic-bezier(.77,0,.175,1)}
+.btn .lbl span{grid-area:1/1;white-space:nowrap;transition:opacity .2s cubic-bezier(.77,0,.175,1)}
+.btn .lbl span:last-child{translate:0 100%;opacity:0}
+.btn:hover .lbl,.btn:focus-visible .lbl{translate:0 -100%}
+.btn:hover .lbl span:first-child,.btn:focus-visible .lbl span:first-child{opacity:0}
+.btn:hover .lbl span:last-child,.btn:focus-visible .lbl span:last-child{opacity:1}
+.btn:hover{border-color:var(--fg-3)}
+.btn.primary:hover{background:color-mix(in srgb,var(--accent) 88%,var(--fg))}
+
+.portrait{position:relative;aspect-ratio:5/4;max-width:460px;width:100%;justify-self:end;border-radius:18px;overflow:hidden;background:var(--bg-2);
+  box-shadow:0 30px 60px -40px rgba(0,0,0,.45)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.portrait .tag{position:absolute;left:14px;bottom:14px;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em}
+@media (max-width:820px){.portrait{max-width:420px;justify-self:start}}
+
+/* speech → units canvas */
+.units{margin-top:clamp(28px,5vw,56px);border:1px solid var(--line);border-radius:18px;background:var(--card);overflow:hidden}
+.units-head{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
+.units-head .legend{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;color:var(--fg-2)}
+.units-head .legend b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.units canvas{display:block;width:100%;height:190px;cursor:crosshair;touch-action:pan-y}
+.units-foot{padding:12px 18px;font-size:.9rem;color:var(--fg-2);border-top:1px solid var(--line)}
+@media (max-width:640px){.units canvas{height:150px}}
+
+/* sections */
+section{padding-block:clamp(48px,8vw,104px);border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:18px 48px;align-items:start;margin-bottom:clamp(28px,4vw,48px)}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr}}
+.sec-head p{max-width:62ch;color:var(--fg-2)}
+
+/* offers */
+.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+@media (max-width:820px){.offers{grid-template-columns:1fr}}
+.offer{background:var(--card);padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.offer .k{font-family:var(--f-mono);font-size:.74rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+.offer p{color:var(--fg-2);font-size:.98rem}
+.offer .proof{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-size:.9rem;color:var(--fg)}
+.offer .proof b{color:var(--accent);font-weight:600}
+
+/* case studies */
+.cases{display:grid;gap:18px}
+.case{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr);gap:18px 40px;padding:28px 0;border-top:1px solid var(--line)}
+.case:first-child{border-top:0;padding-top:0}
+@media (max-width:820px){.case{grid-template-columns:1fr}}
+.case .meta{display:flex;flex-direction:column;gap:10px}
+.case .meta .where{font-size:.92rem;color:var(--fg-2)}
+.case .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.04em;padding:4px 9px;border:1px solid var(--line);border-radius:999px;color:var(--fg-2);background:var(--bg)}
+.case .body{display:grid;gap:14px;min-width:0}
+.case .row{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:start}
+@media (max-width:480px){.case .row{grid-template-columns:1fr;gap:4px}}
+.case .row .l{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3);padding-top:5px}
+.case .row p{color:var(--fg-2)}
+.case .row.result p{color:var(--fg)}
+.case .link{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:.92rem;color:var(--accent)}
+.case .link svg{transition:translate .2s cubic-bezier(.23,1,.32,1)}
+.case .link:hover svg{translate:3px 0}
+.nda{display:flex;gap:12px;align-items:flex-start;margin-top:28px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--bg-2);font-size:.93rem;color:var(--fg-2)}
+.nda svg{flex:none;margin-top:3px;color:var(--gold)}
+
+/* how I work */
+.principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px}
+@media (max-width:640px){.principles{grid-template-columns:1fr}}
+.principle{display:grid;gap:8px}
+.principle h3{display:flex;align-items:baseline;gap:12px}
+.principle h3::before{content:"";width:22px;height:1px;background:var(--gold);flex:none;translate:0 -4px}
+.principle p{color:var(--fg-2);font-size:.98rem}
+
+/* stack marquee */
+.marquee{border-block:1px solid var(--line);padding-block:14px;overflow:hidden;position:relative;
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee .track{display:flex;gap:40px;width:max-content;animation:scroll 40s linear infinite;font-family:var(--f-mono);font-size:.82rem;letter-spacing:.06em;color:var(--fg-2)}
+.marquee:hover .track{animation-play-state:paused}
+.marquee .track span::before{content:"·";margin-right:40px;color:var(--gold)}
+@keyframes scroll{to{translate:-50% 0}}
+
+/* record: awards + education */
+.record{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+@media (max-width:820px){.record{grid-template-columns:1fr}}
+.list{display:grid;gap:0}
+.list .item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 20px;padding:14px 0;border-top:1px solid var(--line)}
+.list .item:last-child{border-bottom:1px solid var(--line)}
+.list .item .t{font-weight:600}
+.list .item .d{font-size:.92rem;color:var(--fg-2)}
+.list .item .when{font-family:var(--f-mono);font-size:.74rem;color:var(--fg-3);white-space:nowrap;padding-top:4px;font-variant-numeric:tabular-nums}
+
+/* contact: the sign-off is the loud moment; everything under it is a quiet utility row */
+.contact{background:var(--bg-2);position:relative;overflow:hidden}
+.contact canvas.echo{position:absolute;inset:auto 0 0 0;width:100%;height:120px;opacity:.55;pointer-events:none}
+.contact .wrap{position:relative}
+.signoff{font-family:var(--f-display);font-weight:500;letter-spacing:-0.03em;line-height:.98;font-size:clamp(2.6rem,8.5vw,7rem);text-wrap:balance;max-width:14ch}
+.signoff .ink{font-style:italic;font-weight:400;color:var(--gold)}
+.contact-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:clamp(28px,5vw,56px)}
+@media (max-width:820px){.contact-row{grid-template-columns:1fr}}
+.contact-row p{max-width:52ch;color:var(--fg-2)}
+.email{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px}
+.email code{font-family:var(--f-mono);font-size:clamp(.95rem,2.2vw,1.15rem);padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);user-select:all}
+.copy{font-size:.86rem;font-weight:600;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;font-family:var(--f-body)}
+.copy:hover{border-color:var(--fg-3)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.now{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.04em;color:var(--fg-3);margin-bottom:14px}
+.now b{font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.now i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:6px}
+.links{display:grid;gap:0}
+.links a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--line);font-weight:500}
+.links a:last-child{border-bottom:1px solid var(--line)}
+.links a span{font-family:var(--f-mono);font-size:.78rem;color:var(--fg-3)}
+.links a svg{transition:translate .2s cubic-bezier(.23,1,.32,1)}
+.links a:hover svg{translate:3px -3px}
+footer{padding-block:28px;font-size:.84rem;color:var(--fg-3);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+/* reveal: visible at rest; the animation only plays when the block enters the viewport */
+.rv.in{animation:rise .7s cubic-bezier(.23,1,.32,1) both}
+@keyframes rise{from{opacity:.001;translate:0 14px}to{opacity:1;translate:0 0}}
+@media (prefers-reduced-motion:reduce){
+  .rv.in{animation:none}.marquee .track{animation:none}.avail i{animation:none}
+  .btn .lbl,.btn .lbl span{transition:none}
+}
+</style>
+</head>
+<body style="margin:0">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>João Victor Carvalho</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a><a href="#offers">What I do</a><a href="#how">How I work</a><a href="#record">Record</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="border-top:0">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow"><span>Machine Learning Engineer</span><span>Speech &amp; LLM systems</span><span>Kansas City · Central Time</span></div>
+        <h1>I build speech AI for languages that were <span class="ink">never written down</span>, and the LLM agents that <em>earn trust</em> before they ship.</h1>
+        <p class="lede">Technical lead at a speech-AI lab serving oral-language communities. I own the stack end to end: self-supervised acoustic units and vocoders, LLM Guide and Validator agents with an evaluation harness as the release gate, and the FastAPI backend and voice apps that five field products run on.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact"><span class="lbl"><span>Start a project</span><span>Let's talk</span></span></a>
+          <a class="btn" href="#work"><span class="lbl"><span>See the work</span><span>Four case studies</span></span></a>
+          <span class="avail"><i aria-hidden="true"></i>Open to full-time roles and contract work</span>
+        </div>
+      </div>
+      <figure class="portrait">
+        <img src="photo.jpg" alt="João Victor Carvalho presenting the Tripod pipeline, next to a slide titled Honest Limitations" width="550" height="440" loading="eager">
+        <figcaption class="tag">Missional AI Summit · Silicon Valley · 2026</figcaption>
+      </figure>
+    </div>
+
+    <div class="units" aria-label="Interactive illustration: a waveform being quantized into discrete acoustic units">
+      <div class="units-head">
+        <span class="eyebrow">speech → 100 discrete units → speech, no text in between</span>
+        <span class="legend"><span><b style="background:var(--unit-a)"></b>vowel-like</span><span><b style="background:var(--unit-b)"></b>fricative</span><span><b style="background:var(--unit-c)"></b>nasal</span><span><b style="background:var(--unit-d)"></b>silence</span></span>
+      </div>
+      <canvas id="unitsCanvas" width="1120" height="190" role="img" aria-label="Animated waveform quantized into colored unit blocks"></canvas>
+      <div class="units-foot">Move your pointer across the strip to change the unit resolution. This is the idea behind the Tripod pipeline: an acoustic tokenizer turns speech into a small vocabulary of units, a vocoder turns units back into a voice, and nothing in between needs an alphabet.</div>
+    </div>
+  </div>
+</section>
+
+<section id="offers">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Three things I do well</h2>
+      <p>Most of my work sits where research-grade speech models meet a product that real people, often with no written language and spotty connectivity, have to use every day. I take the whole problem: model, evaluation, backend, app.</p>
+    </div>
+    <div class="offers">
+      <article class="offer rv">
+        <span class="k">01 · Speech</span>
+        <h3>Speech AI for low-resource and unwritten languages</h3>
+        <p>Text-free pipelines: self-supervised acoustic units (XEUS), motif tokenizers, pitch-conditioned unit vocoders (HiFi-GAN), ASR and TTS adaptation, data collection with speakers in the field.</p>
+        <p class="proof">Built the full Tripod speech pipeline and ran pilots with <b>Terena and Sateré-Mawé</b> speakers in Brazil.</p>
+      </article>
+      <article class="offer rv">
+        <span class="k">02 · Agents</span>
+        <h3>LLM agents you can actually ship</h3>
+        <p>Multi-role agents on the Claude API with explicit tool boundaries, a validator role that refuses and redirects, and an evaluation harness (golden sessions, LLM judge, per-role cost accounting, budget gates) as the release gate.</p>
+        <p class="proof">Nothing reaches a field team until it passes the harness; the same pattern served <b>50+ enterprise clients</b> at an ed-tech company.</p>
+      </article>
+      <article class="offer rv">
+        <span class="k">03 · Product</span>
+        <h3>Backends and voice-first apps around the model</h3>
+        <p>FastAPI, SQLAlchemy and PostgreSQL on Cloud Run with auth, app-scoped access and migrations; Flutter apps for iOS, Android and web; React consoles for the team behind the model.</p>
+        <p class="proof">One shared backend behind <b>five products</b>, from audio capture to a screen-text-free LLM room.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <p>Each entry is the problem as the team had it, what I built, and what came out of it. The lab work is methods-level; the data and the languages' material stay with the communities.</p>
+    </div>
+    <div class="cases">
+      <article class="case rv">
+        <div class="meta">
+          <h3>Tripod speech pipeline</h3>
+          <span class="where">OBT Lab (YWAM Kansas City) · Dec 2025 – present</span>
+          <div class="stack"><span class="chip">PyTorch</span><span class="chip">XEUS</span><span class="chip">HiFi-GAN v2</span><span class="chip">BPE</span><span class="chip">16 kHz</span></div>
+        </div>
+        <div class="body">
+          <div class="row"><span class="l">Problem</span><p>Communities with oral-only languages needed a way to produce and check translated speech with no writing system to lean on, and no existing model knew their language.</p></div>
+          <div class="row"><span class="l">Built</span><p>A text-free pipeline end to end: an XEUS-based acoustic tokenizer with a vocabulary of 100 discrete units, a BPE motif tokenizer over those units, a pitch-conditioned HiFi-GAN v2 unit vocoder at 16 kHz, and Tripod Lab, the experiment-tracking and training dashboard with staged quality gates that decides what moves forward.</p></div>
+          <div class="row result"><span class="l">Result</span><p>A working speech-to-units-to-speech loop, pilots with Terena and Sateré-Mawé speakers, and a method the linguistics lead could turn into specifications and tickets for the rest of the team.</p></div>
+        </div>
+      </article>
+
+      <article class="case rv">
+        <div class="meta">
+          <h3>Internalization Room</h3>
+          <span class="where">OBT Lab · LLM agents in a screen-text-free room</span>
+          <div class="stack"><span class="chip">Claude API</span><span class="chip">Flutter</span><span class="chip">TTS</span><span class="chip">SSE</span><span class="chip">LLM judge</span></div>
+        </div>
+        <div class="body">
+          <div class="row"><span class="l">Problem</span><p>Walk a translation team through a passage by voice alone, with an AI guide that helps without taking over, and a way to prove each prompt or model change did not make it worse.</p></div>
+          <div class="row"><span class="l">Built</span><p>Guide and Validator roles on Claude with explicit tool boundaries, text-to-speech and server-sent events inside a Flutter room with no on-screen text; plus the evaluation harness: a fixed set of golden sessions replayed and scored by an LLM judge, per-role cost accounting and budget gates wired in as the release gate.</p></div>
+          <div class="row result"><span class="l">Result</span><p>Prompt and model changes ship only after the harness passes, with cost per session known before release. The same harness runs a regression suite over the agents' tool use.</p></div>
+        </div>
+      </article>
+
+      <article class="case rv">
+        <div class="meta">
+          <h3>One backend, five field products</h3>
+          <span class="where">OBT Lab · platform and apps</span>
+          <div class="stack"><span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span><span class="chip">PostgreSQL</span><span class="chip">Cloud Run</span><span class="chip">Alembic</span><span class="chip">React</span></div>
+        </div>
+        <div class="body">
+          <div class="row"><span class="l">Problem</span><p>Five products (Internalization Room, Facilitator Desk, Sound Necklace, Oral Collector, Annotation Studio) built by a small team, each needing auth, storage, access rules and secrets, without five backends.</p></div>
+          <div class="row"><span class="l">Built</span><p>A shared FastAPI, SQLAlchemy and PostgreSQL backend on Google Cloud Run with authentication, app-scoped access control, Alembic migrations and Secret Manager; the Oral Collector Flutter app for monolingual audio capture on iOS, Android and web; and the React/TypeScript consoles (Tripod Console, Meaning Map UI, Annotation Studio for layer-wise studies of XEUS).</p></div>
+          <div class="row result"><span class="l">Result</span><p>One codebase the whole lab deploys from, with a multi-agent development workflow (isolated worktrees, dedicated reviewers, Linear) that lets two or three engineers ship like a larger team.</p></div>
+        </div>
+      </article>
+
+      <article class="case rv">
+        <div class="meta">
+          <h3>Multi-agent content generation for enterprises</h3>
+          <span class="where">Maria Educação, São Paulo · Nov 2024 – Nov 2025 · ML Engineer, Tech Lead (Jan–Mar 2025)</span>
+          <div class="stack"><span class="chip">LLM agents</span><span class="chip">RAG</span><span class="chip">Microservices</span><span class="chip">CI/CD</span></div>
+        </div>
+        <div class="body">
+          <div class="row"><span class="l">Problem</span><p>Generate personalized educational content for dozens of enterprise clients with answers accurate enough to put in front of teachers and students.</p></div>
+          <div class="row"><span class="l">Built</span><p>Multi-agent architectures and monitoring pipelines over enterprise content indexing, with human-in-the-loop validation; non-blocking microservices for generation; CI/CD for tests and linting. As Tech Lead, worked with the CTO to scale the ML products and bridged the product and engineering squads.</p></div>
+          <div class="row result"><span class="l">Result</span><p>Personalized generation for 50+ B2B clients with higher answer accuracy and lower operating cost.</p></div>
+        </div>
+      </article>
+
+      <article class="case rv">
+        <div class="meta">
+          <h3>maestri-flow</h3>
+          <span class="where">Open source · Claude Code + Maestri</span>
+          <div class="stack"><span class="chip">Python</span><span class="chip">MCP</span><span class="chip">Linear</span><span class="chip">Agent skills</span></div>
+        </div>
+        <div class="body">
+          <div class="row"><span class="l">What</span><p>The setup I use to take a Linear ticket to a merged pull request with coding agents: agent skills, Maestri roles, a local decision inbox exposed over MCP so a human settles only the real decisions, and a single end-to-end test slot.</p></div>
+          <div class="row result"><span class="l">Link</span><p><a class="link" href="https://github.com/joaocarvoli/maestri-flow" target="_blank" rel="noopener">github.com/joaocarvoli/maestri-flow <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p></div>
+        </div>
+      </article>
+    </div>
+    <div class="nda">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      <span>Most of this code is private, and the language material belongs to the communities who recorded it. I am glad to walk through architecture, evaluation results and code on a call.</span>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How I work</h2>
+      <p>Habits from shipping models to people who cannot file a bug report in writing.</p>
+    </div>
+    <div class="principles">
+      <div class="principle rv"><h3>Evaluation is the release gate</h3><p>A prompt or model change is a code change. It ships when the golden sessions pass and the cost per session is known, not when it looks good in a demo.</p></div>
+      <div class="principle rv"><h3>Test first, then the feature</h3><p>Backends and apps grow behind tests; migrations are proven by snapshot, upgrade and downgrade before they touch a database with field data.</p></div>
+      <div class="principle rv"><h3>Specs the whole team can read</h3><p>I turn a linguist's method into specifications, tickets and acceptance criteria, and review the engineers' work against them.</p></div>
+      <div class="principle rv"><h3>Agents as teammates, with a human on the decisions</h3><p>Isolated worktrees, one reviewer per task, and a decision inbox so the people decide only what the ticket and the docs do not settle.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Python</span><span>PyTorch</span><span>XEUS</span><span>HiFi-GAN</span><span>Claude API</span><span>LLM evaluation</span><span>RAG</span><span>FastAPI</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Alembic</span><span>Docker</span><span>Google Cloud Run</span><span>Secret Manager</span><span>AWS</span><span>Flutter · Dart</span><span>React · TypeScript</span><span>Kotlin</span><span>Java · Spring Boot</span><span>CI/CD</span><span>Linear</span><span>MCP</span>
+    <span>Python</span><span>PyTorch</span><span>XEUS</span><span>HiFi-GAN</span><span>Claude API</span><span>LLM evaluation</span><span>RAG</span><span>FastAPI</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Alembic</span><span>Docker</span><span>Google Cloud Run</span><span>Secret Manager</span><span>AWS</span><span>Flutter · Dart</span><span>React · TypeScript</span><span>Kotlin</span><span>Java · Spring Boot</span><span>CI/CD</span><span>Linear</span><span>MCP</span>
+  </div>
+</div>
+
+<section id="record" style="border-top:0">
+  <div class="wrap">
+    <div class="record">
+      <div class="rv">
+        <h2 style="margin-bottom:22px">Record</h2>
+        <div class="list">
+          <div class="item"><div><div class="t">Speaker, Missional AI Summit, Santa Clara, CA</div><div class="d">Presented the Tripod speech pipeline and its open problems to a closed session of organizations building AI for Bible translation.</div></div><span class="when">2026</span></div>
+          <div class="item"><div><div class="t">1st place, AWS DeepRacer for undergraduates</div><div class="d">São Paulo, Brazil. Reinforcement learning on a physical track.</div></div><span class="when">2023</span></div>
+          <div class="item"><div><div class="t">5th in Brazil, AWS DeepRacer qualifiers</div><div class="d">National phase at CSBC, the Brazilian Computing Society congress, among 150 participants.</div></div><span class="when">2024</span></div>
+          <div class="item"><div><div class="t">AWS DeepRacer instructor</div><div class="d">Taught reinforcement learning to 20+ students at the Federal University of Ceará and ran a university-wide race with AWS.</div></div><span class="when">2023–24</span></div>
+          <div class="item"><div><div class="t">Published paper, CSBC</div><div class="d">"Comparação de Desempenho entre Soluções de Interoperabilidade", on interoperability performance.</div></div><span class="when">2022</span></div>
+          <div class="item"><div><div class="t">Research, Insight Data Science Lab (Samsung/CRIA)</div><div class="d">Explainable AI and health-insight features for Samsung smartwatches from sensor data and microservices.</div></div><span class="when">2021–23</span></div>
+        </div>
+      </div>
+      <div class="rv">
+        <h2 style="margin-bottom:22px">Education</h2>
+        <div class="list">
+          <div class="item"><div><div class="t">B.S. Software Engineering, Federal University of Ceará</div><div class="d">GPA 3.6/4.0 (9.0/10).</div></div><span class="when">2020–25</span></div>
+          <div class="item"><div><div class="t">Visiting student, University of São Paulo</div><div class="d">NLP and deep learning, ICMC São Carlos.</div></div><span class="when">2025–26</span></div>
+          <div class="item"><div><div class="t">Languages</div><div class="d">Portuguese (native), English (advanced).</div></div><span class="when"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <canvas class="echo" id="echoCanvas" width="1200" height="120" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h2 class="signoff rv" style="margin-top:14px">Let's build something people can <span class="ink">hear.</span></h2>
+    <div class="contact-row">
+      <div class="rv">
+        <p>Have a speech or LLM problem with real users behind it? Send a few lines about the problem and the constraints, and we can take it from there.</p>
+        <div class="email">
+          <code id="emailText">joaocarvoli@hotmail.com</code>
+          <button class="copy" id="copyBtn" type="button">Copy email</button>
+        </div>
+        <div class="ctas">
+          <a class="btn primary" href="mailto:joaocarvoli@hotmail.com?subject=Speech%20%2F%20LLM%20project"><span class="lbl"><span>Email me</span><span>Open your mail app</span></span></a>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener"><span class="lbl"><span>Résumé (PDF)</span><span>One page</span></span></a>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="now"><span><i aria-hidden="true"></i>Kansas City</span><span>local time <b id="kcTime">--:--</b></span><span>Central Time</span></div>
+        <div class="links">
+        <a href="https://www.linkedin.com/in/joaocarvoli/" target="_blank" rel="noopener">LinkedIn <span>linkedin.com/in/joaocarvoli</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a href="https://github.com/joaocarvoli" target="_blank" rel="noopener">GitHub <span>github.com/joaocarvoli</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a href="https://github.com/joaocarvoli/maestri-flow" target="_blank" rel="noopener">maestri-flow <span>open source</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>© 2026 João Victor Carvalho · Kansas City, MO</span><span>Designed and built by hand · Bricolage Grotesque, Instrument Sans, JetBrains Mono</span></div></footer>
+
+<script>
+(function(){
+  // reveal: elements are visible at rest; the class only plays a short rise animation
+  try{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  }catch(e){}
+
+  // copy email
+  var btn=document.getElementById('copyBtn'),txt=document.getElementById('emailText');
+  if(btn){btn.addEventListener('click',function(){
+    var v=txt.textContent;
+    function done(ok){btn.textContent=ok?'Copied':'Select and copy';setTimeout(function(){btn.textContent='Copy email';},1600);}
+    try{navigator.clipboard.writeText(v).then(function(){done(true);},function(){sel();});}catch(e){sel();}
+    function sel(){try{var r=document.createRange();r.selectNodeContents(txt);var s=getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}done(false);}
+  });}
+
+  // Kansas City local time
+  var kt=document.getElementById('kcTime');
+  function tick(){try{kt.textContent=new Intl.DateTimeFormat('en-US',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Chicago'}).format(new Date());}catch(e){}}
+  if(kt){tick();setInterval(tick,15000);}
+
+  // faint waveform echo along the bottom of the contact section
+  var ec=document.getElementById('echoCanvas');
+  if(ec){var ex=ec.getContext('2d'),et=0,eW=0,eH=0,eR=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function esize(){var r=ec.getBoundingClientRect();eW=r.width;eH=r.height;var d=Math.min(2,window.devicePixelRatio||1);ec.width=eW*d;ec.height=eH*d;ex.setTransform(d,0,0,d,0,0);}
+    esize();addEventListener('resize',esize);
+    function edraw(){var col=getComputedStyle(document.documentElement).getPropertyValue('--line').trim();ex.clearRect(0,0,eW,eH);ex.strokeStyle=col;ex.lineWidth=1;
+      for(var px=0;px<eW;px+=3){var x=px/eW;var env=0.3+0.7*Math.pow(Math.max(0,Math.sin(x*5.3+et*0.5)),1.8);var a=env*(Math.sin(x*120+et*4)*0.6+Math.sin(x*260+et*7)*0.3)*eH*0.42;
+        ex.beginPath();ex.moveTo(px,eH/2-a);ex.lineTo(px,eH/2+a);ex.stroke();}
+      if(!eR){et+=0.012;requestAnimationFrame(edraw);}}
+    edraw();}
+
+  // speech → units canvas
+  var cv=document.getElementById('unitsCanvas'); if(!cv) return;
+  var ctx=cv.getContext('2d'); var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var res=0.5, t=0, W=0, H=0, dpr=1;
+  function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+  function size(){dpr=Math.min(2,window.devicePixelRatio||1);var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size(); addEventListener('resize',size);
+  cv.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();res=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width));});
+  // a fake "utterance": syllable envelope + harmonics, deterministic
+  function wave(x,tt){var env=0.35+0.65*Math.pow(Math.max(0,Math.sin(x*6.1+tt*0.9)),1.6)*(0.6+0.4*Math.sin(x*1.7+tt*0.3));
+    var f=Math.sin(x*140+tt*8)*0.6+Math.sin(x*290+tt*12)*0.25+Math.sin(x*61+tt*5)*0.15; return env*f;}
+  function cls(x,tt){ // unit class along x: 0 vowel 1 fricative 2 nasal 3 silence
+    var e=0.35+0.65*Math.pow(Math.max(0,Math.sin(x*6.1+tt*0.9)),1.6); if(e<0.42) return 3;
+    var m=Math.sin(x*23+tt*1.3); if(m>0.55) return 1; if(m<-0.6) return 2; return 0;}
+  function draw(){
+    var cols=[css('--unit-a'),css('--unit-b'),css('--unit-c'),css('--unit-d')], line=css('--line'), fg3=css('--fg-3');
+    ctx.clearRect(0,0,W,H);
+    var top=H*0.08, waveH=H*0.5, unitsY=H*0.68, unitsH=H*0.22;
+    // units row: block count from resolution (12..64)
+    var n=Math.round(12+res*52), bw=W/n;
+    for(var i=0;i<n;i++){var x=(i+0.5)/n; var c=cls(x,t); ctx.fillStyle=cols[c]; ctx.globalAlpha=c===3?0.35:0.9;
+      var h=unitsH*(c===3?0.35:0.7+0.3*Math.abs(Math.sin(i*1.7+t))); ctx.fillRect(i*bw+1,unitsY+unitsH-h,Math.max(1,bw-2),h);}
+    ctx.globalAlpha=1;
+    // baseline
+    ctx.strokeStyle=line; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(0,top+waveH/2); ctx.lineTo(W,top+waveH/2); ctx.stroke();
+    // waveform, colored by the unit under it
+    var step=2; for(var px=0;px<W;px+=step){var x=px/W; var c=cls(x,t); ctx.strokeStyle=cols[c]; ctx.globalAlpha=c===3?0.45:1;
+      ctx.beginPath(); var y0=top+waveH/2; var a=wave(x,t)*waveH*0.48; ctx.moveTo(px,y0-a); ctx.lineTo(px,y0+a); ctx.stroke();}
+    ctx.globalAlpha=1;
+    // labels
+    ctx.fillStyle=fg3; ctx.font='11px "JetBrains Mono", monospace'; ctx.fillText('waveform · 16 kHz',8,top+10); ctx.fillText('units · '+n+' tokens on screen',8,unitsY-6);
+    if(!reduce){t+=0.016;} requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
 </html>
